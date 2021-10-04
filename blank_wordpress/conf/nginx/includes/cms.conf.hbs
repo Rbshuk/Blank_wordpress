@@ -1,0 +1,7 @@
+location / {
+	try_files $uri $uri/ /index.php$is_args$args;
+}
+rewrite /wp-admin$ $resolved_scheme://$host$uri/ permanent;
+rewrite /administrator$ $resolved_scheme://$host$uri/ permanent;
+rewrite /phpmyadmin$ $resolved_scheme://$host$uri/ permanent;
+rewrite ^/core/authorize.php/core/authorize.php(.*)$ /core/authorize.php$1;
